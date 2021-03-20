@@ -1,21 +1,25 @@
 import 'dart:io';
-import 'package:dart_1/persegipanjang.dart';
 
-main(List<String> arguments) {
-  PersegiPanjang kotak1, kotak2;
-  double luaskotak1;
+import 'package:dart_1/hero.dart';
+import 'package:dart_1/monster.dart';
+import 'package:dart_1/monster_kecoa.dart';
+import 'package:dart_1/monster_ubur_ubur.dart';
 
-  kotak1 = new PersegiPanjang();
-  kotak1.setPanjang(-2);
-  kotak1.lebar = 3;
+main(List<String> arguments) async {
+  Hero h = Hero();
+  Monster monster = MonsterUburUbur();
+  MonsterUburUbur u = MonsterUburUbur();
+  List<Monster> monsters = [];
 
-  kotak2 = PersegiPanjang();
-  //meminta inputan
-  kotak2.setPanjang(double.tryParse(stdin.readLineSync()));
-  kotak2.lebar = double.tryParse(stdin.readLineSync());
+  monsters.add(MonsterUburUbur());
+  monsters.add(Monsterkecoa());
+  monsters.add(MonsterUburUbur());
 
-  luaskotak1 = kotak1.luas;
+  print((monster as MonsterUburUbur).swim());
 
-  print(luaskotak1 + kotak2.luas);
-  print(kotak1.getpanjang());
+  // for (Monster m in monsters) {
+  //   if ( m is MonsterUburUbur){
+  //     print(m.swim());
+  //   }
+  // }
 }
