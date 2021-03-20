@@ -1,11 +1,28 @@
 import 'dart:io';
 
 main(List<String> arguments) {
-  List<int> myList = [1, 1, 6, 4, 3, 6, 2];
-  List<String> list = [];
+  PersegiPanjang kotak1, kotak2;
+  double luaskotak1;
 
-  list = myList.map((number) => "angka111" + number.toString()).toList();
-  list.forEach((str) {
-    print(str);
-  });
+  kotak1 = new PersegiPanjang();
+  kotak1.panjang = 2;
+  kotak1.lebar = 3;
+
+  kotak2 = PersegiPanjang();
+  //meminta inputan
+  kotak2.panjang = double.tryParse(stdin.readLineSync());
+  kotak2.lebar = double.tryParse(stdin.readLineSync());
+
+  luaskotak1 = kotak1.hitungluas();
+
+  print(luaskotak1 + kotak2.hitungluas());
+}
+
+class PersegiPanjang {
+  double panjang;
+  double lebar;
+
+  double hitungluas() {
+    return this.panjang + this.lebar;
+  }
 }
