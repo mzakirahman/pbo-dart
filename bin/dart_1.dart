@@ -1,24 +1,24 @@
-import 'package:dart_1/drink-ability-mixin.dart';
-import 'package:dart_1/flying_monster.dart';
-import 'package:dart_1/Knight.dart';
-import 'package:dart_1/monster.dart';
-import 'package:dart_1/monster_kecoa.dart';
-import 'package:dart_1/monster_ubur_ubur.dart';
-import 'package:dart_1/Monsterucoa.dart';
+import 'dart:io';
 
-main(List<String> arguments) async {
-  List<Monster> monsters = [];
+void main(List<String> arguments) {
+  print("Jam Masuk : ");
+  int iMasuk = int.tryParse(stdin.readLineSync());
+  print("Jam Keluar : ");
+  int iKeluar = int.tryParse(stdin.readLineSync());
+  int iLama;
+  int iBiaya;
 
-  Knight k = Knight();
-  print(k.drink());
+  if (iKeluar >= iMasuk) {
+    iLama = iKeluar - iMasuk;
+  } else {
+    iLama = (12 - iMasuk) + iKeluar;
+  }
 
-  // monsters.add(MonsterUburUbur());
-  // monsters.add(Monsterkecoa());
-  // monsters.add(Monsterucoa());
+  if (iLama > 2) {
+    iBiaya = 2000 + ((iLama - 2) * 500);
+  } else {
+    iBiaya = 2000;
+  }
 
-  // for (Monster m in monsters) {
-  //   if (m is FlyingMonster) {
-  //     print((m as DrinkAbilityMixin).drink());
-  //   }
-  // }
+  print(iBiaya);
 }
